@@ -45,6 +45,19 @@ server.post("/api/users", (req, res) => {
     }
 })
 
+server.delete('/api/users/:id', (req, res) => {
+    const {id} = req.params;
+  
+    const found = users.find(user => user.id === id);
+  
+    if (found) {
+      users = users.filter(user => user.id !== id);
+      res.status(200).json(found);
+    } else {
+      res.status(404).json({message: "not found"});
+    }
+  });
+
 const port = 5000;
 server.listen(port, () =>
   console.log(`\n === server running on port ${port} === \n`)
