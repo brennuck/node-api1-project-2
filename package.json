@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/brennuck/node-api1-project-2/issues"
   },
-  "homepage": "https://github.com/brennuck/node-api1-project-2#readme"
+  "homepage": "https://github.com/brennuck/node-api1-project-2#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
