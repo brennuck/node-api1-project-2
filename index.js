@@ -32,6 +32,19 @@ server.get("/api/users/:id", (req, res) => {
   }
 });
 
+server.post("/api/users", (req, res) => {
+    const userInfo = req.body;
+
+    if (!userInfo.name || !userInfo.bio) {
+        res.status(400).json({ errorMessage: "Please provide name and bio for the user." })
+    } else if (userInfo.name || userInfo.bio) {
+        users.push(userInfo);
+        res.status(201).json(users)
+    } else {
+        res.status(500).json({ errorMessage: "There was an error while saving the user to the database" })
+    }
+})
+
 const port = 5000;
 server.listen(port, () =>
   console.log(`\n === server running on port ${port} === \n`)
